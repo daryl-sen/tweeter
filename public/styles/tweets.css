@@ -14,16 +14,22 @@
 }
 
 #tweets article:hover {
-  box-shadow: 10px 10px rgb(119, 119, 119);
+  box-shadow: 10px 10px rgb(159, 170, 187);
 }
 
-#tweets header .username {
+#tweets article:hover .username{
+  visibility: visible;
+}
+
+.username {
   color: rgb(184, 184, 184);
   visibility: hidden;
 }
 
-#tweets header .nameAndProfile {
-  font-size: 1.2em;
+.nameAndProfile {
+  font-size: 1.4em;
+  line-height: 80px;
+  vertical-align: middle;
 }
 
 #tweets footer {
@@ -35,4 +41,14 @@
 
 #tweets header, #tweets article, #tweets p, #tweets footer {
   padding: 10px;
+}
+
+img.profile {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+}
+
+.controls i{
+  margin: 0.5em;
 }

@@ -23,7 +23,7 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-
+    <script src="https://kit.fontawesome.com/ab5f3dd7e3.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -32,7 +32,7 @@
       <span>tweeter</span>
       <div id='newTweetButton'>
         Write a new tweet <br>
-        &#65086;
+        <i class="fas fa-chevron-down"></i>
       </div>
     </nav>
 
@@ -63,8 +63,11 @@
       <section id="tweets">
         <article>
           <header>
-            <div class="nameAndProfile">Name</div>
-            <div class="username">Guy</div>
+            <div class="nameAndProfile">
+              <img class="profile" src="http://localhost:8080/images/profile-hex.png"/>
+              Name
+            </div>
+            <div class="username">@Guy</div>
           </header>
           <p>
             Some stuff someone tweeted.
@@ -75,7 +78,9 @@
             </div>
 
             <div class="controls">
-              F S H
+              <i class="fas fa-flag"></i>
+              <i class="fas fa-retweet"></i>
+              <i class="fas fa-heart"></i>
             </div>
           </footer>
         </article>
