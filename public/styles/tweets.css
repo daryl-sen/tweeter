@@ -29,13 +29,11 @@
 
 .nameAndProfile {
   font-size: 1.4em;
-  line-height: 80px;
-  vertical-align: middle;
 }
 
 #tweets footer {
   border-top: 4px solid gray;
-  font-size: 0.6em;
+  font-size: 0.7em;
   display: flex;
   justify-content: space-between;
 }
