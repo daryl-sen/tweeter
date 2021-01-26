@@ -25,6 +25,9 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
+body {
+  padding-top: 120px;
+}
 main {
   margin: auto;
   width: 90%;

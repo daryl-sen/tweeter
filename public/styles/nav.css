@@ -1,11 +1,14 @@
 nav {
-  /* height: 120px; */
+  height: 120px;
   background-color: #4056A1;
   color: #fff;
   padding: 1.5em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 #newTweetButton {
