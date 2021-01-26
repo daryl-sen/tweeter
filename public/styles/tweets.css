@@ -5,6 +5,7 @@
 
 #tweets article {
   border: 4px solid gray;
+  margin-bottom: 2em;
 }
 
 #tweets header {
