@@ -75,11 +75,22 @@ $(document).ready(function() {
     event.preventDefault();
     const qstring = $(this).serialize();
     const tweetContent = qstring.split('=')[1];
+    const notification = $('#notificationContent');
 
     if (tweetContent === '') {
-      alert('Empty tweet!');
+      notification.parent().slideDown();
+      notification.parent().removeClass('hidden');
+      notification.text('Please do not submit empty tweets.');
+      setTimeout(() => {
+        notification.parent().slideUp();
+      }, 3000);
     } else if (tweetContent.length > 140) {
-      alert('Tweet too long');
+      notification.parent().slideDown();
+      notification.parent().removeClass('hidden');
+      notification.text('Your tweet is too long, it must be 140 characters or less.');
+      setTimeout(() => {
+        notification.parent().slideUp();
+      }, 3000);
     } else {
       $.ajax({
         url: '/tweets/',

@@ -1,0 +1,10 @@
+.notification {
+  margin: 1em 0;
+  padding: 1em;
+  border: 1px solid #ff3939;
+  color: #ff3939;
+}
+
+.hidden {
+  display: none;
+}
