@@ -62,8 +62,8 @@ $(document).ready(function() {
     event.preventDefault();
     const qstring = $(this).serialize();
     const tweetContent = qstring.split('=')[1];
+    console.log(qstring);
 
-    console.log(tweetContent);
     if (tweetContent === '') {
       alert('Empty tweet!');
     } else if (tweetContent.length > 140) {
@@ -71,17 +71,20 @@ $(document).ready(function() {
     } else {
       $.ajax({
         url: '/tweets/',
-        method: 'GET'
+        method: 'POST',
+        data: qstring
       })
       .then((result) => {
         const tweetsContainerNode = $('#tweets');
-        renderTweets(result, tweetsContainerNode, createTweetElement);
+        tweetsContainerNode.empty();
+        loadTweets(renderTweets);
+        // tweetsContainerNode.prepend(createTweetElement(result[result.length - 1]));
       })
       .catch((err) => {
-        console.log('something bad happened');
+        console.log(err);
       })
     }
   });
 
-  // loadTweets(renderTweets);
+  loadTweets(renderTweets);
 });
