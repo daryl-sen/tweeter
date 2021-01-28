@@ -31,8 +31,11 @@ const createTweetElement = function(tweetData) {
 
 const renderTweets = function(tweetsArray, tweetsContainerNode, processTweet) {
   for (const tweet of tweetsArray) {
-    $('#tweets').append(processTweet(tweet));
+    $('#tweets').prepend(processTweet(tweet));
   }
+  // for (let i = tweetsArray.length - 1; i > 0; i--) {
+  //   $('#tweets')
+  // }
 };
 
 const loadTweets = function(callback) {
