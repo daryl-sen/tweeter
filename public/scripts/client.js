@@ -33,9 +33,6 @@ const renderTweets = function(tweetsArray, tweetsContainerNode, processTweet) {
   for (const tweet of tweetsArray) {
     $('#tweets').prepend(processTweet(tweet));
   }
-  // for (let i = tweetsArray.length - 1; i > 0; i--) {
-  //   $('#tweets')
-  // }
 };
 
 const loadTweets = function(callback) {
@@ -43,13 +40,26 @@ const loadTweets = function(callback) {
     url: '/tweets',
     method: 'GET'
   })
-    .then((result) => {
-      callback(result, $('#tweets'), createTweetElement);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  .then((result) => {
+    callback(result, $('#tweets'), createTweetElement);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 };
+
+const fetchLastTweet = function(containerNode) {
+  $.ajax({
+    url: '/tweets',
+    method: 'GET'
+  })
+  .then((result) => {
+    containerNode.prepend(createTweetElement(result[result.length - 1]));
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+}
 
 
 
@@ -65,7 +75,6 @@ $(document).ready(function() {
     event.preventDefault();
     const qstring = $(this).serialize();
     const tweetContent = qstring.split('=')[1];
-    console.log(qstring);
 
     if (tweetContent === '') {
       alert('Empty tweet!');
@@ -79,14 +88,15 @@ $(document).ready(function() {
       })
       .then((result) => {
         const tweetsContainerNode = $('#tweets');
-        tweetsContainerNode.empty();
-        loadTweets(renderTweets);
-        // tweetsContainerNode.prepend(createTweetElement(result[result.length - 1]));
+        fetchLastTweet(tweetsContainerNode);
       })
       .catch((err) => {
         console.log(err);
       })
     }
+
+    // $(this).empty();
+    $(this).children('#tweet-text').val('');
   });
 
   loadTweets(renderTweets);
