@@ -61,18 +61,27 @@ $(document).ready(function() {
   $('form').on('submit', function(event) {
     event.preventDefault();
     const qstring = $(this).serialize();
-    $.ajax({
-      url: '/tweets/',
-      method: 'GET'
-    })
+    const tweetContent = qstring.split('=')[1];
+
+    console.log(tweetContent);
+    if (tweetContent === '') {
+      alert('Empty tweet!');
+    } else if (tweetContent.length > 140) {
+      alert('Tweet too long');
+    } else {
+      $.ajax({
+        url: '/tweets/',
+        method: 'GET'
+      })
       .then((result) => {
-        console.log(typeof(result));
-        renderTweets(result, $('#tweets'), createTweetElement);
+        const tweetsContainerNode = $('#tweets');
+        renderTweets(result, tweetsContainerNode, createTweetElement);
       })
       .catch((err) => {
         console.log('something bad happened');
       })
+    }
   });
 
-  loadTweets(renderTweets);
+  // loadTweets(renderTweets);
 });
