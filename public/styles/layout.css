@@ -21,13 +21,34 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 120px;
+  }
+  body>main {
+    padding: 1em;
+  }
+  body>header#top {
+    width: 500px;
+    margin-left: 1em;
+    margin-top: 2em;
+    height: 400px;
+    padding-top: 0;
+  }
+  header#top div:first-child {
+    padding: 1em;
+  }
+  nav {
+    background-color: #4056A1;
+  }
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-body {
-  padding-top: 120px;
-}
 main {
   margin: auto;
   width: 90%;
