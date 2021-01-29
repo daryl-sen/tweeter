@@ -108,6 +108,7 @@ $(document).ready(function() {
         notification.parent().slideUp();
       }, 3000);
     } else {
+      // add tweet to the database and post it
       $.ajax({
         url: '/tweets/',
         method: 'POST',
@@ -122,7 +123,10 @@ $(document).ready(function() {
       })
     }
 
+    // reset the new tweet box
     $(this).children('#tweet-text').val('');
+    // reset the counter
+    $('.counter').text('140');
   });
   loadTweets(renderTweets);
 });
