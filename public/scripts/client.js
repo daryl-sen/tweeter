@@ -11,12 +11,12 @@ const escape = function(str) {
 };
 
 const renderTime = function(unixTime) {
-  const currentUnix = new Date().getTime()
+  const currentUnix = new Date().getTime();
   const secondsAgo = Number(currentUnix - unixTime);
   // 1000ms in 1s, 60s in 1m, 60m in 1h, 24h in 1 day
   const daysAgo = secondsAgo / 1000 / 60 / 60 / 24;
   return Math.floor(daysAgo);
-}
+};
 
 const createTweetElement = function(tweetData) {
   return `<article>
@@ -55,12 +55,12 @@ const loadTweets = function(callback) {
     url: '/tweets',
     method: 'GET'
   })
-  .then((result) => {
-    callback(result, $('#tweets'), createTweetElement);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+    .then((result) => {
+      callback(result, $('#tweets'), createTweetElement);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 const fetchLastTweet = function(containerNode) {
@@ -69,13 +69,13 @@ const fetchLastTweet = function(containerNode) {
     url: '/tweets',
     method: 'GET'
   })
-  .then((result) => {
-    containerNode.prepend(createTweetElement(result[result.length - 1]));
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-}
+    .then((result) => {
+      containerNode.prepend(createTweetElement(result[result.length - 1]));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 
 
@@ -114,13 +114,13 @@ $(document).ready(function() {
         method: 'POST',
         data: qString
       })
-      .then((result) => {
-        const tweetsContainerNode = $('#tweets');
-        fetchLastTweet(tweetsContainerNode);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+        .then((result) => {
+          const tweetsContainerNode = $('#tweets');
+          fetchLastTweet(tweetsContainerNode);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
 
     // reset the new tweet box
