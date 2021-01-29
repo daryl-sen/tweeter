@@ -4,10 +4,18 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const escape =  function(str) {
+const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
+};
+
+const renderTime = function(unixTime) {
+  const currentUnix = new Date().getTime()
+  const secondsAgo = Number(currentUnix - unixTime);
+  // 1000ms in 1s, 60s in 1m, 60m in 1h, 24h in 1 day
+  const daysAgo = secondsAgo / 1000 / 60 / 60 / 24;
+  return Math.floor(daysAgo);
 }
 
 const createTweetElement = function(tweetData) {
@@ -24,7 +32,7 @@ const createTweetElement = function(tweetData) {
   </p>
   <footer>
     <div class="datestamp">
-      ${tweetData.created_at} days ago
+      ${renderTime(tweetData.created_at)} days ago
     </div>
     <div class="controls">
       <i class="fas fa-flag"></i>
