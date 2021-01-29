@@ -2,8 +2,8 @@
 
 Tweeter is a simple, single-page Twitter clone. It has a responsive layout that looks good on mobile and on desktop, and features a character counter to make sure users don't accidentally submit tweets that are too long or empty.
 
-!["Desktop View"](https://github.com/daryl-sen/tweeter/master/documents/desktop.png?raw=true)
-!["Mobile View"](https://github.com/daryl-sen/tweeter/master/documents/mobile.png?raw=true)
+!["Desktop View"](https://github.com/daryl-sen/tweeter/blob/master/documents/desktop.png)
+!["Mobile View"](https://github.com/daryl-sen/tweeter/blob/master/documents/mobile.png)
 
 ## Installation
 
