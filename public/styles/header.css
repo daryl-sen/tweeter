@@ -6,8 +6,6 @@ header#top {
 }
 
 header#top div:first-child {
-  /* background: url(../images/always-grey.png); */
   text-align: center;
   width: 100%;
-  height: auto;
 }
